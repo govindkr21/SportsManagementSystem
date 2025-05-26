@@ -2,7 +2,6 @@ import type React from "react"
 import Image from "next/image"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
-import { BadmintonIcon, Basketball, Cricket, Football, TableTennis, Volleyball } from "@/components/sport-icons"
 
 export default function Home() {
   return (
@@ -13,20 +12,20 @@ export default function Home() {
             <Image
               src="/images/amity-logo.png"
               alt="Amity University Logo"
-              width={50}
-              height={50}
+              width={60}
+              height={60}
               className="rounded-md"
             />
-            <h1 className="text-xl font-bold">Amity University Madhya Pradesh</h1>
+            <h1 className="text-xl font-bold text-[#FFCC00]">Amity University Madhya Pradesh</h1>
           </div>
           <div className="space-x-4">
             <Link href="/login">
-              <Button variant="outline" className="text-white border-white hover:bg-white hover:text-[#003366]">
+              <Button variant="outline" className="text-[#FFCC00] border-[#FFCC00] hover:bg-[#FFCC00] hover:text-[#003366]">
                 Login
               </Button>
             </Link>
             <Link href="/signup">
-              <Button className="bg-white text-[#003366] hover:bg-gray-100">Sign Up</Button>
+              <Button className="bg-[#FFCC00] text-[#003366] hover:bg-yellow-300">Sign Up</Button>
             </Link>
           </div>
         </div>
@@ -39,24 +38,24 @@ export default function Home() {
               <Image
                 src="/images/amity-logo.png"
                 alt="Amity University Logo"
-                width={100}
-                height={100}
+                width={120}
+                height={120}
                 className="rounded-md"
               />
             </div>
-            <h2 className="text-3xl md:text-5xl font-bold mb-6">Sports Equipment Management System</h2>
+            <h2 className="text-3xl md:text-5xl font-bold mb-6 text-[#FFCC00]">Sports Equipment Management System</h2>
             <p className="text-lg md:text-xl mb-8 max-w-2xl mx-auto">
               Welcome to Amity University Madhya Pradesh's Sports Equipment Management Portal. Sign up or login to issue
               sports equipment for your activities.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link href="/signup">
-                <Button size="lg" className="bg-white hover:bg-gray-100 text-[#003366] px-8">
+                <Button size="lg" className="bg-[#FFCC00] hover:bg-yellow-300 text-[#003366] px-8 font-semibold">
                   Register Now
                 </Button>
               </Link>
               <Link href="/login">
-                <Button size="lg" variant="outline" className="px-8 border-white text-white hover:bg-white/10">
+                <Button size="lg" variant="outline" className="px-8 border-[#FFCC00] text-white hover:bg-[#FFCC00]/10">
                   Login
                 </Button>
               </Link>
@@ -66,37 +65,37 @@ export default function Home() {
 
         <section className="py-16 bg-gray-50">
           <div className="container mx-auto px-4">
-            <h2 className="text-2xl md:text-3xl font-bold text-center mb-12">Available Sports Equipment</h2>
+            <h2 className="text-2xl md:text-3xl font-bold text-center text-[#003366] mb-12">Available Sports Equipment</h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
               <EquipmentCard
                 title="Table Tennis"
                 description="6 bats and balls available for issue"
-                icon={<TableTennis className="w-12 h-12 text-[#003366]" />}
+                imageSrc="/images/sports/table-tennis.png"
               />
               <EquipmentCard
                 title="Volleyball"
                 description="2 volleyballs available for issue"
-                icon={<Volleyball className="w-12 h-12 text-[#003366]" />}
+                imageSrc="/images/sports/volleyball.png"
               />
               <EquipmentCard
                 title="Basketball"
                 description="4 basketballs available for issue"
-                icon={<Basketball className="w-12 h-12 text-[#003366]" />}
+                imageSrc="/basket.png"
               />
               <EquipmentCard
                 title="Cricket"
                 description="4 bats and balls available for issue"
-                icon={<Cricket className="w-12 h-12 text-[#003366]" />}
+                imageSrc="/images/sports/cricket.png"
               />
               <EquipmentCard
                 title="Football"
                 description="2 footballs available for issue"
-                icon={<Football className="w-12 h-12 text-[#003366]" />}
+                imageSrc="/images/sports/football.png"
               />
               <EquipmentCard
                 title="Badminton"
                 description="4 pairs of rackets and shuttles"
-                icon={<BadmintonIcon className="w-12 h-12 text-[#003366]" />}
+                imageSrc="/images/sports/badminton.png"
               />
             </div>
           </div>
@@ -104,49 +103,37 @@ export default function Home() {
 
         <section className="py-16">
           <div className="container mx-auto px-4">
-            <h2 className="text-2xl md:text-3xl font-bold text-center mb-12">How It Works</h2>
+            <h2 className="text-2xl md:text-3xl font-bold text-center text-[#003366] mb-12">How It Works</h2>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-              <div className="bg-white p-6 rounded-lg shadow-md text-center">
-                <div className="w-16 h-16 bg-[#003366]/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <span className="text-2xl font-bold text-[#003366]">1</span>
+              {[1, 2, 3].map((step) => (
+                <div key={step} className="bg-white p-6 rounded-lg shadow-md text-center">
+                  <div className="w-16 h-16 bg-[#FFCC00]/20 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <span className="text-2xl font-bold text-[#003366]">{step}</span>
+                  </div>
+                  <h3 className="text-xl font-semibold mb-3 text-[#003366]">
+                    {step === 1 && "Sign Up"}
+                    {step === 2 && "Issue Equipment"}
+                    {step === 3 && "Return On Time"}
+                  </h3>
+                  <p className="text-gray-600">
+                    {step === 1 && "Register with your name, enrollment number, password, upload your ID card, and select your department (ASET, ALS, ABS, etc.)"}
+                    {step === 2 && "Browse available equipment and issue what you need for your sports activities. Maximum usage time is 2 hours."}
+                    {step === 3 && "Return equipment within 2 hours to avoid late fees (₹10 first day, ₹20 second day, etc.)"}
+                  </p>
                 </div>
-                <h3 className="text-xl font-semibold mb-3">Sign Up</h3>
-                <p className="text-gray-600">
-                  Register with your name, enrollment number, password, upload your ID card, and select your department
-                  (ASET, ALS, ABS, etc.)
-                </p>
-              </div>
-              <div className="bg-white p-6 rounded-lg shadow-md text-center">
-                <div className="w-16 h-16 bg-[#003366]/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <span className="text-2xl font-bold text-[#003366]">2</span>
-                </div>
-                <h3 className="text-xl font-semibold mb-3">Issue Equipment</h3>
-                <p className="text-gray-600">
-                  Browse available equipment and issue what you need for your sports activities. Maximum usage time is 2
-                  hours.
-                </p>
-              </div>
-              <div className="bg-white p-6 rounded-lg shadow-md text-center">
-                <div className="w-16 h-16 bg-[#003366]/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <span className="text-2xl font-bold text-[#003366]">3</span>
-                </div>
-                <h3 className="text-xl font-semibold mb-3">Return On Time</h3>
-                <p className="text-gray-600">
-                  Return equipment within 2 hours to avoid late fees (₹10 first day, ₹20 second day, etc.)
-                </p>
-              </div>
+              ))}
             </div>
           </div>
         </section>
 
         <section className="py-16 bg-[#003366] text-white">
           <div className="container mx-auto px-4 text-center">
-            <h2 className="text-2xl md:text-3xl font-bold mb-6">Ready to Get Started?</h2>
+            <h2 className="text-2xl md:text-3xl font-bold mb-6 text-[#FFCC00]">Ready to Get Started?</h2>
             <p className="text-lg mb-8 max-w-2xl mx-auto">
               Join the Amity University sports community and access our equipment management system today.
             </p>
             <Link href="/signup">
-              <Button size="lg" className="bg-white hover:bg-gray-100 text-[#003366] px-8">
+              <Button size="lg" className="bg-[#FFCC00] hover:bg-yellow-300 text-[#003366] px-8 font-semibold">
                 Sign Up Now
               </Button>
             </Link>
@@ -162,11 +149,11 @@ export default function Home() {
                 <Image
                   src="/images/amity-logo.png"
                   alt="Amity University Logo"
-                  width={40}
-                  height={40}
+                  width={48}
+                  height={48}
                   className="rounded-md"
                 />
-                <h3 className="text-lg font-semibold">Amity University Madhya Pradesh</h3>
+                <h3 className="text-lg font-semibold text-[#FFCC00]">Amity University Madhya Pradesh</h3>
               </div>
               <p className="text-sm text-gray-300">
                 Sports Department
@@ -177,7 +164,7 @@ export default function Home() {
               </p>
             </div>
             <div>
-              <h3 className="text-lg font-semibold mb-4">Quick Links</h3>
+              <h3 className="text-lg font-semibold mb-4 text-[#FFCC00]">Quick Links</h3>
               <ul className="space-y-2 text-sm text-gray-300">
                 <li>
                   <Link href="/login" className="hover:text-white">
@@ -202,7 +189,7 @@ export default function Home() {
               </ul>
             </div>
             <div>
-              <h3 className="text-lg font-semibold mb-4">Contact</h3>
+              <h3 className="text-lg font-semibold mb-4 text-[#FFCC00]">Contact</h3>
               <ul className="space-y-2 text-sm text-gray-300">
                 <li>Email: sports@amity.edu</li>
                 <li>Phone: +91 123 456 7890</li>
@@ -221,11 +208,13 @@ export default function Home() {
   )
 }
 
-function EquipmentCard({ title, description, icon }: { title: string; description: string; icon: React.ReactNode }) {
+function EquipmentCard({ title, description, imageSrc }: { title: string; description: string; imageSrc?: string }) {
   return (
     <div className="bg-white p-6 rounded-lg shadow-md flex flex-col items-center text-center hover:shadow-lg transition-shadow">
-      <div className="mb-4">{icon}</div>
-      <h3 className="text-xl font-semibold mb-2">{title}</h3>
+      {imageSrc && (
+        <Image src={imageSrc} alt={`${title} equipment`} width={96} height={96} className="mb-4" />
+      )}
+      <h3 className="text-xl font-semibold mb-2 text-[#003366]">{title}</h3>
       <p className="text-gray-600">{description}</p>
     </div>
   )
